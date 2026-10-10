@@ -1,0 +1,344 @@
+# =============================================================================
+#  AI.R public demo — MASTER DATA (example / demo seed)
+# =============================================================================
+#  FAKE sample dataset so the app runs end-to-end without any real business
+#  data. Copy it to `data/master_data.toml` and sync with:
+#
+#      python -m scripts.import_data
+#
+#  Material names and colour codes match the vocabulary the UI expects (the
+#  Stock screen lays balloons out by catalogue code). People, venue, suppliers
+#  and all figures are invented. Values are quoted strings; "" -> NULL.
+# =============================================================================
+
+expense_category = [
+    "materials", "transport", "fuel", "equipment",
+    "software", "marketing", "maintenance", "other",
+]
+
+# -----------------------------------------------------------------------------
+#  COLOURS — base palette + metallics (+ a couple off-catalogue)
+# -----------------------------------------------------------------------------
+[[color]]
+code = "001"
+name = "White"
+type = "standard"
+[[color]]
+code = "014"
+name = "Black"
+type = "standard"
+[[color]]
+code = "068"
+name = "Teal"
+type = "standard"
+[[color]]
+code = "009"
+name = "Light Blue"
+type = "standard"
+[[color]]
+code = "010"
+name = "Blue"
+type = "standard"
+[[color]]
+code = "079"
+name = "Lilac"
+type = "standard"
+[[color]]
+code = "006"
+name = "Pink"
+type = "standard"
+[[color]]
+code = "007"
+name = "Magenta"
+type = "standard"
+[[color]]
+code = "045"
+name = "Red"
+type = "standard"
+[[color]]
+code = "013"
+name = "Green"
+type = "standard"
+[[color]]
+code = "008"
+name = "Purple"
+type = "standard"
+[[color]]
+code = "004"
+name = "Orange"
+type = "standard"
+[[color]]
+code = "002"
+name = "Yellow"
+type = "standard"
+# --- metallics ---
+[[color]]
+code = "089"
+name = "Silver"
+type = "metal"
+[[color]]
+code = "096"
+name = "Rose Gold"
+type = "metal"
+[[color]]
+code = "054"
+name = "Blue Metal"
+type = "metal"
+[[color]]
+code = "064"
+name = "Magenta Metal"
+type = "metal"
+[[color]]
+code = "088"
+name = "Gold"
+type = "metal"
+[[color]]
+code = "028"
+name = "Pearl"
+type = "metal"
+# --- off-catalogue (trigger the +10% surcharge rule) ---
+[[color]]
+code = "101"
+name = "Bordeaux"
+type = "standard"
+in_catalog = "false"
+[[color]]
+code = "102"
+name = "Navy"
+type = "standard"
+in_catalog = "false"
+
+# -----------------------------------------------------------------------------
+#  LOCATIONS — areas of the demo venue "Riverside Hall"
+# -----------------------------------------------------------------------------
+[[location]]
+name = "Main Hall"
+address = "Riverside Hall, 1 Example Street, Sampletown"
+[[location]]
+name = "Garden"
+address = "Riverside Hall, 1 Example Street, Sampletown"
+[[location]]
+name = "Terrace"
+address = "Riverside Hall, 1 Example Street, Sampletown"
+comment = "Watch out: 200 cm columns are too tall for this area."
+[[location]]
+name = "To be defined"
+address = ""
+comment = "Import placeholder: location not yet known."
+
+# -----------------------------------------------------------------------------
+#  PARTY — customers, suppliers, workers, the business itself
+# -----------------------------------------------------------------------------
+[[party]]
+name = "AI.R"
+code_nickname = "AIR"
+is_business = "true"
+comment = "Our company (the partners as one entity)."
+[[party]]
+name = "Riverside Hall"
+code_nickname = "RVH"
+is_customer = "true"
+comment = "External partner/venue; the customer of our orders."
+# --- Workers / partners ---
+[[party]]
+name = "Alice"
+code_nickname = "AL"
+is_worker = "true"
+comment = "demo admin account"
+[[party]]
+name = "Bob"
+code_nickname = "BO"
+is_worker = "true"
+[[party]]
+name = "Carol"
+code_nickname = "CA"
+is_worker = "true"
+[[party]]
+name = "Dave"
+code_nickname = "DA"
+is_worker = "true"
+# --- Suppliers ---
+[[party]]
+name = "Amazon"
+code_nickname = "AMZ"
+is_supplier = "true"
+category = "online"
+[[party]]
+name = "SupplyCo"
+code_nickname = "SUP"
+is_supplier = "true"
+category = "physical store"
+
+# -----------------------------------------------------------------------------
+#  COMPOSITIONS / PRICE LIST
+# -----------------------------------------------------------------------------
+[[composition]]
+code = "001"
+name = "Maxi Arch"
+standard_price = "80.00"
+estimated_working_time = "60"
+[[composition]]
+code = "002"
+name = "Simple Column 100 cm"
+standard_price = "30.00"
+estimated_working_time = "20"
+[[composition]]
+code = "003"
+name = "Ceiling Cloud"
+standard_price = "6.00"
+estimated_working_time = "5"
+[[composition]]
+code = "004"
+name = "Organic Garland"
+standard_price = "45.00"
+estimated_working_time = "40"
+[[composition]]
+code = "005"
+name = "Helium Bouquet"
+standard_price = "18.00"
+estimated_working_time = "15"
+[[composition]]
+code = "006"
+name = "Foil Number (per digit)"
+standard_price = "24.00"
+estimated_working_time = "10"
+
+# -----------------------------------------------------------------------------
+#  REQUIRED ITEMS (raw materials). Names match the UI catalogue vocabulary.
+# -----------------------------------------------------------------------------
+[[required_item]]
+name = "Palloncino grande"
+type = "balloon"
+dimension = "30cm"
+unit = "piece"
+used_color = "true"
+minimum_safe_quantity = "100"
+[[required_item]]
+name = "Palloncino piccolo"
+type = "balloon"
+dimension = "12cm"
+unit = "piece"
+used_color = "true"
+minimum_safe_quantity = "200"
+[[required_item]]
+name = "Palloncino lungo"
+type = "balloon"
+dimension = "260cm"
+unit = "piece"
+used_color = "false"
+minimum_safe_quantity = "50"
+[[required_item]]
+name = "Elio"
+type = "gas"
+unit = "balloon"
+used_color = "false"
+minimum_safe_quantity = "100"
+[[required_item]]
+name = "Palloncino numero 80"
+type = "foil"
+dimension = "80cm"
+unit = "piece"
+used_color = "true"
+is_number = "true"
+minimum_safe_quantity = "10"
+[[required_item]]
+name = "Palloncino numero 110"
+type = "foil"
+dimension = "110cm"
+unit = "piece"
+used_color = "true"
+is_number = "true"
+minimum_safe_quantity = "6"
+
+# -----------------------------------------------------------------------------
+#  REQUIREMENTS (bill of materials)
+# -----------------------------------------------------------------------------
+[[requirement]]
+composition_code = "001"
+required_item_name = "Palloncino grande"
+quantity = "60"
+[[requirement]]
+composition_code = "002"
+required_item_name = "Palloncino grande"
+quantity = "25"
+[[requirement]]
+composition_code = "003"
+required_item_name = "Palloncino piccolo"
+quantity = "12"
+[[requirement]]
+composition_code = "004"
+required_item_name = "Palloncino grande"
+quantity = "20"
+[[requirement]]
+composition_code = "004"
+required_item_name = "Palloncino piccolo"
+quantity = "20"
+[[requirement]]
+composition_code = "004"
+required_item_name = "Palloncino lungo"
+quantity = "10"
+[[requirement]]
+composition_code = "005"
+required_item_name = "Elio"
+quantity = "6"
+[[requirement]]
+composition_code = "005"
+required_item_name = "Palloncino grande"
+quantity = "6"
+[[requirement]]
+composition_code = "006"
+required_item_name = "Palloncino numero 80"
+quantity = "1"
+
+# -----------------------------------------------------------------------------
+#  STOCK THRESHOLDS (minimum on-hand alert per item [+colour / +digit])
+# -----------------------------------------------------------------------------
+[[stock_threshold]]
+required_item_name = "Palloncino grande"
+color_code = "010"
+minimum_quantity = "80"
+[[stock_threshold]]
+required_item_name = "Palloncino grande"
+color_code = "045"
+minimum_quantity = "80"
+[[stock_threshold]]
+required_item_name = "Palloncino piccolo"
+color_code = "028"
+minimum_quantity = "150"
+[[stock_threshold]]
+required_item_name = "Palloncino numero 80"
+color_code = "089"
+variant = "8"
+minimum_quantity = "5"
+
+# -----------------------------------------------------------------------------
+#  PRODUCTS (purchasable SKUs mapped to a required item [+colour])
+# -----------------------------------------------------------------------------
+[[product]]
+name = "Palloncino grande - Blue (pack 100)"
+required_item_name = "Palloncino grande"
+color_code = "010"
+package_quantity = "100"
+[[product]]
+name = "Palloncino grande - Red (pack 100)"
+required_item_name = "Palloncino grande"
+color_code = "045"
+package_quantity = "100"
+[[product]]
+name = "Palloncino piccolo - Pearl (pack 100)"
+required_item_name = "Palloncino piccolo"
+color_code = "028"
+package_quantity = "100"
+[[product]]
+name = "Palloncino lungo - assorted (pack 50)"
+required_item_name = "Palloncino lungo"
+package_quantity = "50"
+[[product]]
+name = "Helium cylinder (300 balloons)"
+required_item_name = "Elio"
+package_quantity = "300"
+[[product]]
+name = "Foil number 80 - Silver"
+required_item_name = "Palloncino numero 80"
+color_code = "089"
+package_quantity = "1"

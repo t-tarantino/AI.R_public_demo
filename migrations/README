@@ -1,0 +1,12 @@
+Alembic migration environment for the AI.R internal system.
+
+The database URL is read from application settings (app.config), not from
+alembic.ini, so migrations always target the same database as the app.
+
+Common commands (run from the project root with the venv active):
+
+    alembic upgrade head            # apply all migrations
+    alembic downgrade -1            # roll back one migration
+    alembic revision --autogenerate -m "message"   # generate a new migration
+    alembic history                 # list migrations
+    alembic current                 # show current DB revision

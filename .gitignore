@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+
+# Virtual environment
+.venv/
+venv/
+
+# Environment / secrets
+.env
+
+# Local SQLite databases
+*.db
+*.sqlite3
+
+# Node / frontend
+node_modules/
+frontend/dist/
+frontend/.vite/
+*.log
+npm-debug.log*
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
+
+# Richie import payloads (one JSON per month; entered via the app, not tracked)
+import_batches/
+
+# Real business data — never committed. Only the example seed is tracked; keep
+# your real master_data.toml and any exports out of git.
+# NB: `data/*` (not `data/`) so the negation below can re-include one file.
+data/*
+!data/master_data.example.toml

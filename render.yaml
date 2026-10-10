@@ -1,0 +1,30 @@
+# Render Blueprint — one Docker web service for the AI.R internal system.
+# The database lives on Supabase (managed Postgres, free tier), so it is NOT
+# defined here; you supply its connection string via the DATABASE_URL env var.
+#
+# To use: push this repo to GitHub, then on Render choose
+# "New +" → "Blueprint" and point it at the repo. Render reads this file.
+services:
+  - type: web
+    name: ai-r
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    # Frankfurt = same continent as the Supabase DB (eu-west-1) and the users
+    # (Italy). Co-locating server + DB cuts per-request latency dramatically.
+    region: frankfurt
+    autoDeploy: true
+    healthCheckPath: /health
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: COOKIE_SECURE
+        value: "true"
+      # Generated once by Render and kept stable across deploys. Rotating it
+      # logs everyone out (invalidates existing session cookies).
+      - key: SECRET_KEY
+        generateValue: true
+      # Paste your Supabase connection string here in the Render dashboard
+      # (kept out of the repo — marked sync:false so it is set manually).
+      - key: DATABASE_URL
+        sync: false

@@ -1,0 +1,26 @@
+# Keep the build context small and avoid leaking local state/secrets.
+.git
+.venv
+venv
+__pycache__
+*.pyc
+.pytest_cache
+.mypy_cache
+*.egg-info
+
+# Local dev database — production uses managed Postgres via DATABASE_URL.
+*.db
+*.sqlite3
+
+# Secrets — provided as Render environment variables, never baked into image.
+.env
+
+# Frontend: node_modules and any local build are rebuilt inside the image.
+frontend/node_modules
+frontend/dist
+frontend/.vite
+
+# Local scratch files.
+_tmp_*.py
+docs
+tests

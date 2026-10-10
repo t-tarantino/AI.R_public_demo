@@ -1,0 +1,19 @@
+{
+  "name": "AI.R public demo",
+  "short_name": "AI.R demo",
+  "description": "AI.R public demo",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4c1d95",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

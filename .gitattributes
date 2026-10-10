@@ -1,0 +1,8 @@
+# Normalize line endings: store text as LF in the repo, check out native locally.
+* text=auto eol=lf
+# Binary assets (if any are added later) stay untouched.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.ico binary
+*.pdf binary
